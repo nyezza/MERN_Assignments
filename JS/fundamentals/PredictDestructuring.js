@@ -1,12 +1,11 @@
 /*      problem 1 */
+
 const cars = ['Tesla', 'Mercedes', 'Honda']
 const [ randomCar ] = cars
 const [ ,otherRandomCar ] = cars
 //Predict the output
-console.log(randomCar)
-// => Tesla
-console.log(otherRandomCar)
-// => Mercedes
+console.log(randomCar) // => Tesla
+console.log(otherRandomCar) // => Mercedes
 
 /*     prblem 2 */
 
@@ -17,10 +16,8 @@ const employee = {
 }
 const { name: otherName } = employee;
 //Predict the output
-//console.log(name);
-// => error
-console.log(otherName);
-// => Elon
+console.log(name); // => error
+console.log(otherName); // => Elon
 
 /*      Problem 3     */
 
@@ -33,10 +30,8 @@ const password = '12345';
 const { password: hashedPassword } = person;  
 
 //Predict the output
-console.log(password);
-// => 12345
-console.log(hashedPassword);
-// unknown variable password in person 
+console.log(password); // => 12345
+console.log(hashedPassword); // no key password in person 
 
 /*     Problem 4    */
 
@@ -66,14 +61,14 @@ const { key } = lastTest;
 const { secondKey } = lastTest;
 const [ ,willThisWork] = secondKey;
 //Predict the output
-console.log(key);
-console.log(secondKey);
-console.log(secondKey[0]);
-console.log(willThisWork);
+console.log(key); // => key
+console.log(secondKey); // => [1, 5, 1, 8, 3, 3]
+console.log(secondKey[0]); // => 1
+console.log(willThisWork); // => 5
 
 
 
-//?--------------Func
+
 
 
 
