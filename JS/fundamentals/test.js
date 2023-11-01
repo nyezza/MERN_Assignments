@@ -67,3 +67,36 @@ const returnObj = () => ({ firstName: 'John', lastName: 'Wick' })
 const returnObjFixed = () => ({ firstName: 'John', lastName: 'Wick' });
 
 console.log(returnObj.firstName);
+// **************
+class Deck {
+  constructor() {
+    const suits = ['Diamond', 'Heart', 'Spade', 'Club'];
+    const faces = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
+    const deck = [];
+    suits.forEach(suit => {
+      faces.forEach(face => {
+        deck.push(this.createCard(suit, face));
+      });
+    });
+    this.deck = deck;
+  }
+  createCard(suit, face) {
+    console.log(face + " of " + suit);
+  }
+}
+
+//?--------------------
+
+document.getElementById("button").onclick = () => setBackgroundColorById("paragraph", "blue");
+document.getElementById("alert").onclick = () => alert(document.getElementById("popup-input").value);
+document.getElementById("hover-this").onmouseover = () => setBackgroundColorById("body", "red");
+document.getElementById("hover-this").onmouseout = () => setBackgroundColorById("body", "white");
+const getValueFromId=(id) => {
+    return document.getElementById(id).value;
+}
+const setBackgroundColorById=(id, color) => {
+  document.getElementById(id).style = "background-color: " + color;
+}
+const mouseOverFunction=(el) => {
+  el.style = "background-color: black";
+}
