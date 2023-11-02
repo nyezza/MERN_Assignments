@@ -23,8 +23,44 @@ const pokémon = Object.freeze([
         { "id": 146, "name": "Moltres",    "types": ["fire", "flying"] },
         { "id": 148, "name": "Dragonair",  "types": ["dragon"] }
     ]);
-    
+
 
     // --------------an array of pokémon objects where the id is evenly divisible by 3--------
 
-    const divByThree= pokémon.filter((div3) =>{ return div3.id % 3});
+    const divByThree= pokémon.filter((div3) => div3.id % 3 ==0);
+    console.log(divByThree);
+
+    //  ---------------------an array of pokémon objects that are "fire" type-----------------
+
+    const fireType = pokémon.filter(fire=> fire.types.includes('Fire'));
+    console.log(fireType);
+
+    //  ------------an array of pokémon objects that have more than one type---------
+    
+    const moreTwoTypes = pokémon.filter((twotypes) => twotypes.types.length > 1);
+    console.log(moreTwoTypes);
+
+    //  --------------an array with just the names of the pokémon---------------
+
+    const namePok = pokémon.map(elt=>elt.name);
+    console.log(namePok);
+
+    // ---an array with just the names of pokémon with an id greater than 99----
+
+    const twoCondition = pokémon.filter(item=>item.id>99).map(elt=>elt.name);
+    console.log(twoCondition);
+
+    // ----an array with just the names of the pokémon whose only type is poison----
+
+    const onlyTypePoison = pokémon.filter(elt=>elt.types.length===1 && elt.types.includes('poison')).map(item=>item.name);
+    console.log(onlyTypePoison);
+
+    //  ---an array containing just the first type of all the pokémon whose second type is "flying"---
+
+    const justFireType = pokémon.filter(elt=>elt.types[1]==('flying')).map(item=>item.types[0]);
+    console.log(justFireType);
+
+    // ----an array containing just the first type of all the pokémon whose second type is "flying"---
+
+    const countPok = pokémon.filter(elt=> elt.types.includes('normal')).length;
+    console.log(countPok);
