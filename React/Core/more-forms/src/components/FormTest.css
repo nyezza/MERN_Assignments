@@ -1,0 +1,38 @@
+.formStyle{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+
+    /* margin: 0 auto; */
+    
+}
+.labelStyle{
+    
+    justify-items:right;
+    align-items: end;
+    align-content: flex-end;
+}
+
+.oneLine{
+    display: flex;
+    background-color: #F6F6F6;
+    border: 02px #F6F6F6 solid;
+    border-radius: 05px;
+    margin-top: 20px;
+    width: 300px;
+    height: 40px;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.inputStyle{
+    margin-left: 20px;
+    border: 02px #F6F6F6 solid;
+    border-radius: 05px;
+}
+
+.resultStyle{
+    width: 300Px;
+    margin-left: 400px;
+}
