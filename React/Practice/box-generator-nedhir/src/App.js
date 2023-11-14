@@ -6,8 +6,8 @@ function App() {
   const [boxColor , setBoxColor]=useState([])
   return (
     <div className="App">
-      <FormBox boxColor={boxColor} setBoxColor={setBoxColor} />
-      <BoxDisplay boxColor={boxColor} />
+      <BoxDisplay boxColor={boxColor} setBoxColor={setBoxColor} />
+      <FormBox boxColor={boxColor} />
     </div>
   );
 }

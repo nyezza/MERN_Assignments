@@ -5,7 +5,7 @@ const BoxDisplay =(props)=>{
 
     const colorHandler=(e)=> {
         e.preventDefault();
-        setBoxColor(color);
+        setBoxColor( [...boxColor,color] );
     }
     return(
         <form onSubmit={colorHandler}>
@@ -13,7 +13,7 @@ const BoxDisplay =(props)=>{
                 <label>Color</label>
                 <input type='text' name='color' onChange={(e)=>(e.target.value)} />
             </div>
-            <input type='submit' name='ADD' />
+            <button>Add</button>
         </form>
     )
 }
