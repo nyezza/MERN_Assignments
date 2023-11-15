@@ -1,0 +1,51 @@
+.AppBlock {
+  height: 100%;
+  background-color: #dddddd;
+  padding: 20px;
+
+}
+
+.HeaderBlock {
+  background-color: #6aa84f;
+  height: 100px;
+  width: 100%;
+  border: 2px solid black;
+}
+
+.NavigationBlock {
+  width: 20%;
+  background-color: #6fa8dc;
+  margin: 20px 20px 20px 0;
+  height: 350px;
+  border: 2px solid black;
+}
+
+.MainBlock {
+  width: 80%;
+  display: flex;
+  background-color: #e06666;
+  height: 400px;
+  margin: 20px 0;
+  border: 2px solid black;
+}
+
+.AdvertBlock {
+  height: 150px;
+  background-color: #b4a7d6;
+  margin: 10px;
+  border: 2px solid black;
+}
+
+.SubContentBlock {
+  width: 32%;
+  height: 300px;
+  margin-right: 10px;
+  margin: 10px;
+  background-color: #ffd966;
+  border: 2px solid black;
+}
+.adv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
