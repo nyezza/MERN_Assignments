@@ -5,16 +5,15 @@ import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 function App () {
     const [heroes , setHeroes] = useState([]);
-    useEffect(()=> {
+    useEffect=(()=> {
         fetch("https://akabab.github.io/superhero-api/api/all.json")
         .then(her=>{
-            //console.log(her.json());
-            return her.json();
+            console.log(her)
         })
         .then(her =>{
-            console.log(her);
-            setHeroes(her)
-            console.log(her);
+            console.log(her.data);
+            setHeroes(her.data)
+            console.log(her.data);
         })
         .catch(err=> console.log(err))
     }, [])
