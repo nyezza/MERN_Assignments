@@ -13,7 +13,7 @@ const Form = (props) => {
     },[])
   return (
     <fieldset>
-    <Table striped bordered hover>
+    <table>
         <thead>
             <tr>
                 <th>Name</th>
@@ -24,21 +24,21 @@ const Form = (props) => {
             </tr>
         </thead>
         <tbody>
-            <tr>
+            
                 {
                     elem.map((elt)=>{
                         return(
-                            <div>
+                            <tr>
                             <th>{elt.name}</th>
                             <th>{elt.climate}</th>
                             <th>{elt.terrain}</th>
-                            <th>{elt.surface_wate}</th>
-                            <th>{elt.population}</th></div>
+                            <th>{elt.surface_water}</th>
+                            <th>{elt.population}</th></tr>
                     )})
                 }
-            </tr>
+            
         </tbody>
-    </Table>
+    </table>
 
         
     </fieldset>
