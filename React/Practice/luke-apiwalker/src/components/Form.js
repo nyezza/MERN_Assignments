@@ -1,18 +1,25 @@
-import Axios  from 'axios'
-import React, { useEffect, useState } from 'react'
-import Table from 'react-bootstrap/Table';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
+
+import React, { useState }  from 'react'
+import {Navbar,Button} from 'react-bootstrap';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navigate, useParams } from 'react-router-dom';
+
+
 const Form = (props) => {
-    const[elem , setElem] = useState([])
-    useEffect(()=>{
-        Axios.get("https://swapi.dev/api/planets")
-        .then(res=>{
-            console.log(res.data.results);
-            setElem(res.data.results)
-        })
-        .catch(err=>console.log(err))
-    },[])
+   const{type}= useParams()
+   //const {id} = useParams()
+   const[id , setId] = useState("");
+
+    const submitHandler=(e)=>{
+        e.preventDefault();
+        console.log(id);
+        console.log(type);
+        setId("")
+        Navigate(`/${type}/${id}`);
+        
+    }
+
     return (
     <>
             {/* "people": "https://swapi.dev/api/people/",
@@ -21,53 +28,31 @@ const Form = (props) => {
 	"species": "https://swapi.dev/api/species/",
 	"vehicles": "https://swapi.dev/api/vehicles/",
 	"starships": "https://swapi.dev/api/starships/" */}
-        <Navbar variant="dark" bg="dark" expand="lg">
-            <div style={{display:"inline-block"}}>
+        {/* <Navbar variant="dark" bg="blue" expand="lg" >
+        <form className="d-inline mx-2" onSubmit={submitHandler}>
+            {/* <div className="d-inline mx-1">
                     <label>Search For</label>
-                    <select name='type' id='type'>
+                    <select>
                         <option value="people">People</option>
                         <option value="planets">Planets</option>
-                        <option value="films">Films</option>
+                        {/* <option value="films">Films</option>
                         <option value="species">Species</option>
                         <option value="vehicles">Vehicles</option>
-                        <option value="starships">Starships</option>
+                        <option value="starships">Starships</option> 
                     </select>
             </div>
-            <form>
+             
                 <label>ID:</label>
-                <input type='text' />
-                <Button variant='primary' style={{padding:'10px'}}>Search</Button>
-            </form>
-        </Navbar>
-        
-    <Table striped bordered hover variant="light">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Climate</th>
-                <th>Terrain</th>
-                <th>Surface Water</th>
-                <th>Population</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-                {
-                    elem.map((elt,index)=>{
-                        return(
-                            <tr key={index}>
-                            <td>{elt.name}</td>
-                            <td>{elt.climate}</td>
-                            <td>{elt.terrain}</td>
-                            <td>{elt.surface_water}</td>
-                            <td>{elt.population}</td></tr>
-                    )})
-                }
-            
-        </tbody>
-    </Table>
+                <input type='text' value={id} onChange={(e)=>{setId(e.target.value)}}/>
 
-        
+                <Button variant='primary'>Search</Button>
+            </form>
+        </Navbar> */}
+        {console.log(id)}
+        <form onSubmit={submitHandler}>
+            <input type='text' value={id} onChange={(e)=>setId(e.target.value)} />
+            <Button>search</Button>
+        </form>
     </>
     )
 }
