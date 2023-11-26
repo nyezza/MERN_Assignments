@@ -1,0 +1,102 @@
+:root{
+  font-family:Inter,system-ui,Avenir,Helvetica,Arial,sans-serif;
+  font-weight:400;
+  color:#404040}
+  *{
+    margin:0;
+    padding:0
+  }
+  .nav-container{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 30px
+  }
+    .home-buttons,.nav{
+      display:flex;
+      gap:10px
+    }
+      a{
+        text-decoration:none;
+        color:inherit;
+        font-weight:600
+      }
+        h1{
+          font-size:63px;
+          margin:20px 0
+        }
+          input,textarea{
+            border:1px solid #f1f1f1;
+            background-color:#fafafa;
+            outline:0;
+            padding:10px;
+            width:100%
+          }
+          textarea{
+            resize:none;
+            font-family:inherit
+          }
+          .container{
+            padding:15px
+          }
+          .primary{
+            background-color:#8a2be2;
+            color:#fff
+          }
+          .secondary{
+            background-color:#eee
+          }
+          .button{
+            padding:15px 30px;
+            font-size:16px;
+            border:none;
+            font-weight:700;
+            border-radius:7px;
+            cursor:pointer
+          }
+          .home-container{
+            height:300px;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center
+          }
+          .new-note-container{
+            padding:20px
+          }
+          .new-note-form{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            width:500px;
+            gap:20px;
+            margin:auto;
+            border-radius:7px;
+            padding:20px 30px
+          }
+          .notes-list{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+            gap:30px;
+            padding:0 60px
+          }
+          .note{border:1px solid #d3d3d3
+            ;padding:15px;
+            border-radius:7px
+          }
+          .note h2{
+            font-size:1rem;
+            margin-bottom:10px
+          }
+          .note p{color:#585858;
+            font-size:.9rem;
+            cursor:pointer
+          }
+          .note-container{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:50px
+          }
+          .note-content{
+            width:500px
+          }
