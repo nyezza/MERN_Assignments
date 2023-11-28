@@ -33,7 +33,7 @@ const Form = (props) => {
             <button>Search</button>
         </form>
 
-        <Table striped bordered hover variant="light">
+        <table>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -59,7 +59,7 @@ const Form = (props) => {
                     })
                 }
             </tbody>
-        </Table>
+        </table>
     </fieldset>
   )
 }
