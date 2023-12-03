@@ -5,17 +5,23 @@ import Axios  from 'axios'
 const OneHero = () => {
     const nav = useNavigate()
     const {id} = useParams()
-    const [one , setOne] = useState({});
+    const [one , setOne] = useState([]);
+    const [Hero,setHero] = useState([])
     useEffect(() =>{
       Axios.get(`https://akabab.github.io/superhero-api/api/id/${id}.json`)
       .then(res => {
-        console.log(res.data);
-        return setOne(res.data)})
+        // console.log(res.data.images.sm);
+        setOne([res.data])
+        console.log([res.data]);
+        // console.log(one[0]);
+        setHero("[res.data]")
+      })
       .catch(err => {
         console.log(err);
         nav("/error")
       })
     },[id])
+    console.log(Hero);
   return (
     <fieldset>
       <Table striped bordered hover variant="light">
@@ -43,10 +49,11 @@ const OneHero = () => {
                 } */}
                 
                         <tr>
-                            <td>{one.id}</td>
-                            <td>{one.name}</td>
-                            {/* <td><img src={one.images["sm"]} alt={one.name} widtd="200px"/></td>
-                            <td>{one.biography["fullName"] ? one.biography["fullName"] : "tdere are no data, Sorry!!!"}</td>
+                            <td>{one[0].id}</td>
+                            {/* <td>{one.images.sm}</td> */}
+                        
+                            {/* <td><img src={one.images.sm} alt={one.name} widtd="200px"/></td> */}
+                            {/* <td>{one.biography["fullName"] ? one.biography["fullName"] : "tdere are no data, Sorry!!!"}</td>
                             <td>{one.biography["publisher"]}</td> */}
                         </tr>
                   
