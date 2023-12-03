@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes,Route} from 'react-router-dom'
+import {Routes,Route, Link} from 'react-router-dom'
 import Form from './components/Form';
 import OneHero from './components/OneHero'
 import Error from './components/Error';
@@ -10,6 +10,12 @@ function App() {
     <div className="App">
       <fieldset>
         <h1>Heros</h1>
+        <div style={{
+          display:'flex',
+          justifyContent:'space-around'
+        }}>
+          <Link to="/">Home</Link>
+        </div>
         <Routes>
           <Route path='/' element={<Form />}/>
           <Route path='/hero/:id' element={<OneHero />}/>
