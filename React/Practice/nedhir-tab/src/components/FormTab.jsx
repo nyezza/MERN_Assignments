@@ -30,7 +30,7 @@ const FormTab = (props) => {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Content</Form.Label>
-        <Form.Control type="Text" placeholder="Content" onChange={(e)=>setContent(e.target.value)} />
+        <Form.Control type="Text" placeholder="Enter Content" onChange={(e)=>setContent(e.target.value)} />
       </Form.Group>
       {/* <Button variant="primary">
         Submit
