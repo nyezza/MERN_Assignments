@@ -19,14 +19,20 @@ function App() {
   const[tab, setTab] = useState(tabsArray);
 
   const add =(newTab)=>{
+    console.log(newTab);
     setTab([...tab,newTab])
+    console.log(tab);
+  }
+  const DeleteTab =(id)=>{
+    setTab(tab.filter((item,index)=>{return(index !==id)}))
+    
   }
 
   return (
     <div className="App">
        <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">Nedhir Tabs Assignment</Navbar.Brand>
+        <Navbar.Brand >Nedhir Tabs Assignment</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -37,8 +43,8 @@ function App() {
       </Container>
     </Navbar>
       <Routes>
-        <Route path='/' element={<Display />} />
-        <Route path='/new' element={<FormTab />} />
+        <Route path='/' element={<Display tab={tab} DeleteTab={DeleteTab} />} />
+        <Route path='/new' element={<FormTab add={add}/>} />
       </Routes>
       
     </div>

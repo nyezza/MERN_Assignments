@@ -1,21 +1,24 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
+import { useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 const FormTab = (props) => {
-  const [title, setTitle] = useState('')
+  const [tite, setTitle] = useState('')
   const [content, setContent] = useState('')
+  const nav =useNavigate()
 
   const SubmitHandler =(e)=>{
     e.preventDefault();
     const newDict={
-      title,
+      tite,
       content
     }
     console.log(newDict);
     props.add(newDict);
     setContent('');
     setTitle('');
+    nav('/')
   }
 
   return (
@@ -32,7 +35,7 @@ const FormTab = (props) => {
       {/* <Button variant="primary">
         Submit
       </Button> */}
-      <button>Submit</button>
+      <Button variant='success'>Submit</Button>
     </Form>
   )
 }
