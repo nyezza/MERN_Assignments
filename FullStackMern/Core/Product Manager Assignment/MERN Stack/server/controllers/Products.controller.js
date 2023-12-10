@@ -10,29 +10,34 @@ module.exports.FindAllProduct =(req,res)=>{
     .catch(err=>{res.json({message:"wait",err})})
 }
 
-
 // create 
-
 module.exports.CreateNewProduct = (req,res)=>{
-    console.log(req.body);
     ProductSchema.create(req.body)
     .then(CreateProduct =>{
-        console.log(CreateProduct);
         res.json({newProduct:CreateProduct})
     })
     .catch(err=>{res.json({message:"wait",err})})
 }
 
+// show one 
 module.exports.showOneProduct = (req,res)=>{
-    console.log(req.params.prodId);
     ProductSchema.findOne({_id:req.params.prodId})
     .then(oneProduct=>{
         res.json(oneProduct)
-        console.log(oneProduct);
     })
     .catch(err=>console.log(err))
 }
 
+//update One
+module.exports.UpdateOneProduct=(req,res)=>{
+    ProductSchema.findOneAndUpdate({_id:req.params.prodId},req.body,{new:true,runValidators:true})
+    .then(result=>{
+        res.json({"message":result})
+    })
+    .catch(err=>console.log(err))
+}
+
+// Delete One
 module.exports.DeleteOneProduct=(req,res)=>{
     ProductSchema.deleteOne({_id:req.params.prodId})
     .then(result=>{res.json(result)})

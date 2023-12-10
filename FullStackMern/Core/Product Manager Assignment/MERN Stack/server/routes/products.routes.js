@@ -5,4 +5,5 @@ module.exports =(app)=>{
     app.post("/api/Product",ProductsController.CreateNewProduct)
     app.get("/api/Product/:prodId",ProductsController.showOneProduct)
     app.delete("/api/Product/:prodId",ProductsController.DeleteOneProduct)
+    app.patch("/api/Product/edit/:prodId",ProductsController.UpdateOneProduct)
 }

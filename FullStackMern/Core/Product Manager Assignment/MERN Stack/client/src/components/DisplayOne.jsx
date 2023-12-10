@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import {useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import Axios from 'axios'
+import Button from 'react-bootstrap/Button';
 const DisplayOne = () => {
+  
   const [oneProduct , setOneProduct] = useState(null)
   const {id} =useParams()
   useEffect(()=>{
@@ -16,6 +18,7 @@ const DisplayOne = () => {
   return (
     <div>
       <h1>Product Manager</h1>
+      <div>
       {
         oneProduct?
         <ul>
@@ -25,6 +28,11 @@ const DisplayOne = () => {
         </ul>:
         <p>Loading, Please Wait</p>
       }
+      </div>
+      <div>
+                <Link to={`/product/edit/${id}`}><Button variant="primary">Edit</Button>{' '}</Link>
+       
+      </div>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import Axios from 'axios'
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
-const Dashboard = () => {
+const Dashboard = (props) => {
   const [allProduct , setAllProduct] = useState([])
 
     const refrech=()=>{
