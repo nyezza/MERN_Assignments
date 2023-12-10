@@ -4,15 +4,21 @@ import {Link,Route,Routes} from 'react-router-dom'
 import Dashboard from './components/Dashboard'
 import CreateProduct from './components/CreateProduct';
 import './App.css';
+import EditProduct from './components/EditProduct';
+import DisplayOne from './components/DisplayOne';
 
 function App() {
   return (
     <div className="App">
-      <Link to="/"><Button variant="warning" style={{margin:"50px"}}>Dashboard</Button>{' '}</Link>
+      <h1 style={{margin:"50px"}}>Product Manager</h1>
+      <Link to="/"><Button variant="warning" style={{margin:"20px"}}>Dashboard</Button>{' '}</Link>
       <Routes>
         <Route path='/' element={<Dashboard />} />
+        <Route path='/new' element={<CreateProduct />} />
+        <Route path='/product/:id' element={<DisplayOne />}/>
+        <Route path='/product/edit/:id' element={<EditProduct />}/>
       </Routes>
-      <h1>Dashboard</h1>
+      
     </div>
   );
 }
