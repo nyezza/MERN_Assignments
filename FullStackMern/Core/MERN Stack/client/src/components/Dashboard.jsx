@@ -20,7 +20,7 @@ const Dashboard = () => {
     Axios.delete(`http://localhost:5000/api/products/${idToDelete}`)
     .then(res =>{
       refrech()
-      console.log(res.data);
+      //console.log(res.data);
       const filtredList = productList.filter((item)=>{
         return(
           item._id !== idToDelete

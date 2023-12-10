@@ -18,7 +18,7 @@ const CreateProduct = () => {
     }
     Axios.post(`http://localhost:5000/api/products`,newObj)
     .then(res=>{
-      console.log(res.data);
+      //console.log(res.data);
       nav("/products")
     })
     .catch(err => console.log(err))

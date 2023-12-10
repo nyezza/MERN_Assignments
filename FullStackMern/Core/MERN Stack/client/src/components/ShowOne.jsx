@@ -9,7 +9,7 @@ const ShowOne = () => {
   useEffect(()=>{
     Axios.get(`http://localhost:5000/api/products/${id}`)
     .then(res => {
-      console.log(res.data);
+      //console.log(res.data);
       setOneProduct(res.data)
     }
       )
