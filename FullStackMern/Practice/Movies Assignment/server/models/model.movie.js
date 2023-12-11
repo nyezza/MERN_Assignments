@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
-const filMakerSchema = require('./model.filmMaker')
+const {filmMaker} = require('./model.filmMaker')
 const Movie= new mongoose.Schema(
     {
-        Name:{
+        Title:{
             type:String,
             required:[true,"this field is required"]
         },
@@ -14,7 +14,15 @@ const Movie= new mongoose.Schema(
             type:Array,
             required:[true,"this field is required"]
         },
-        FilmMaker:[filMakerSchema]
+        FilmMaker:{
+            type:String
+            //type:{filmMaker},
+            //required:[false,"this field is required"]
+        },
+        IdMaker:{
+            type:String
+        }
+        
         
     },{timestamps:true})
 

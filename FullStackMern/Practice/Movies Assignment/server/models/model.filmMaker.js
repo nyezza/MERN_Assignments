@@ -16,4 +16,4 @@ const filmMaker = new mongoose.Schema({
 },{timestamps:true})
 
 const filmMakerSchema = mongoose.model("filmMakerSchema",filmMaker)
-module.exports = filmMakerSchema
+module.exports = {filmMakerSchema,filmMaker}

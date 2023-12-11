@@ -7,8 +7,10 @@ app.use(express.json(),express.urlencoded({extended:true}),cors())
 require("dotenv").config()
 require("./config/mongoose.config")
 const port=process.env.port
-const Routes= require("./routes/filmMaker.route")
-Routes(app)
+const filmMakerRoutes= require("./routes/filmMaker.route")
+const movieRoutes = require('./routes/movie.route')
+filmMakerRoutes(app);
+movieRoutes(app);
 
 // require('./routes/filmMaker.route')(app)
 // require('./routes/movie.route')(app)
