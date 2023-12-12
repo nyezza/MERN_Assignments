@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import Dashboard from './components/Dashboard'
+import CreateNote from './components/CreateNote'
+import ShowOneNote from './components/ShowOneNote';
+import UpdateNote from './components/UpdateNote'
+import {Link,Routes,Route} from 'react-router-dom'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Notes</h1>
+      <Link to='/notes' style={{margin:"100px",fontWeight:"bold", fontSize:"18px"}}>Home</Link>
+      <Link to='/notes/new' style={{margin:"100px",fontWeight:"bold", fontSize:"18px"}}>Create</Link>
+      <hr/>
+      <Routes>
+        <Route path='/notes' element={<Dashboard />}/>
+        <Route path='/notes/new'element={<CreateNote />}/>
+        <Route path='/notes/:id' element={<ShowOneNote />}/>
+        <Route path='/notes/:id/edit' element={<UpdateNote />}/>
+      </Routes>
     </div>
   );
 }
