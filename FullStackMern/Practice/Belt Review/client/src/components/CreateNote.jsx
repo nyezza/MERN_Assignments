@@ -21,6 +21,7 @@ const CreateNote = () => {
     Axios.post(`http://localhost:5000/api/note`,inputObj)
     .then(res=>{
       console.log(res.data);
+      nav('/notes')
     })
     .catch(err =>{
       const errorResponse = err.response.data.errors; // Get the errors from err.response.data
@@ -31,11 +32,14 @@ const CreateNote = () => {
                 // Set Errors
                 setErrors(errorArr);
     })
-    nav('/notes')
+    
   }
   return (
     
       <Form onSubmit={submitHandler}>
+        {errors.map((err, index) => (
+                    <p key="{index}" style={{ color: "red" }}>{err}</p>
+                ))}
       <Form.Group className="mb-3">
         <Form.Label>Title:</Form.Label>
         <Form.Control value={inputObj.Title} name='Title' placeholder="Enter the Title here" onChange={handelInput} />
