@@ -3,11 +3,14 @@ import Axios from 'axios'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate,Link } from 'react-router-dom';
+import '../App.css';
 
 const CreateAuthor = () => {
+
   const nav = useNavigate()
   const [errors , setErrors] = useState([])
   const [name , setName] = useState('')
+
   const submitHandler = (e) =>{
     e.preventDefault()
     const obj={
@@ -28,26 +31,36 @@ const CreateAuthor = () => {
                 setErrors(errorArr);
     })
   }
+
   const CancelBtn=()=>{
     nav(-1)
   }
+
   return (
-    <div>
+    <div className='container'>
+
       <div>
-      <Link to='/authors'style={{justifyContent:"left",display:"flex"}}>Home</Link>
-      <p style={{justifyContent:"left",display:"flex",color:"rgb(165,102,245)"}}>Add a new author:</p>
+      <div className='navBar'>
+      <Link to='/authors'className='styleHomeLink'>Home</Link>
+      <Link to='/' className='styleHomeLink'>LogOut</Link>
       </div>
+      <p className='StyleLink'>Add a new author:</p>
+      </div>
+
       <Form onSubmit={submitHandler} style={{border:"black solid 02px"}}>
         {errors.map((err, index) => (
                     <p key="{index}" style={{ color: "red" }}>{err}</p>
                 ))}
+                
       <Form.Group className="mb-3" controlId='exampleForm.ControlInput1'>
         <Form.Label>Name:</Form.Label>
         <Form.Control  name='Name' placeholder="Enter the Name here" onChange={(e)=>setName(e.target.value)} />
       </Form.Group>
+
       <Button variant="primary" onClick={()=>CancelBtn()}>Cancel</Button>{'  '}
       <Button variant="primary" type="submit">Submit</Button>
     </Form>
+
     </div>
   )
 }

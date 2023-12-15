@@ -3,8 +3,11 @@ import Axios from 'axios'
 import {Link} from 'react-router-dom'
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/esm/Button';
+
 const Dashbord = () => {
+
   const [authList , setAuthList] = useState([])
+
   const refrech=()=>{
     Axios.get(`http://localhost:5000/api/authors`)
     .then(res => 
@@ -23,9 +26,12 @@ const Dashbord = () => {
       )
     .catch(err => console.log(err))
   }
+
+  // to refrech to view afcter delete
   useEffect(()=>{
     refrech()
   },[])
+
   const deletechoosenAuthor=(IdAuthToDelete)=>{
     Axios.delete(`http://localhost:5000/api/authors/${IdAuthToDelete}`)
     .then(res =>{
@@ -39,33 +45,42 @@ const Dashbord = () => {
     })
     .catch(err=>console.log(err))
   }
+  
   return (
-    <div style={{justifyContent:"left", margin:"40px",color:"rgb(165,102,245)"}}>
+    <div className='FormStyle'>
+
       <div>
-      <Link to='/authors/new'style={{justifyContent:"left",display:"flex"}}>Add an author</Link>
-      <p style={{justifyContent:"left",display:"flex",color:"rgb(165,102,245)"}}>We have quotes by:</p>
+        <div className='navBar'>
+           <Link to='/authors/new' className='styleHomeLink'>Add an author</Link>
+           <Link to='/' className='styleHomeLink'>LogOut</Link>
+        </div>
+     
+      <p className='StyleLink'>We have quotes by:</p>
       </div>
+
             <Table striped bordered hover >
+
             <thead >
-              <tr style={{textDecorationColor:"white"}}>
-                <th style={{textDecorationColor:"white"}}>Author</th>
+              <tr className='StyleBtn'>
+                <th className='StyleBtn'>Author</th>
                 <th>Actions Available</th>
               </tr>
             </thead>
+
             <tbody>
             {
               authList.map((item,index)=>{
               return(<tr key={index}>
                 <td>{item.Name}</td>
                 <td>
-                  <Link to={`/authors/${item._id}/edit`}><Button variant='info' style={{margin:"05px"}}>Edit</Button>{' '}</Link>
-                  <Button variant='info'onClick={()=>deletechoosenAuthor(item._id)} style={{margin:"05px"}}>Delete</Button>{' '}
+                  <Link to={`/authors/${item._id}/edit`}><Button variant='info' className='SpaceBtn'>Edit</Button>{' '}</Link>
+                  <Button variant='info'onClick={()=>deletechoosenAuthor(item._id)} className='SpaceBtn'>Delete</Button>{' '}
                 </td>
               </tr>)
               })
-              
               }
             </tbody>
+            
           </Table>
           
     </div>

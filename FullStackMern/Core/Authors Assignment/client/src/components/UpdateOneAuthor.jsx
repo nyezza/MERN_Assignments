@@ -9,6 +9,7 @@ const UpdateOneAuthor = () => {
   const nav = useNavigate()
   const [errors , setErrors] = useState([])
   const [name , setName] = useState({})
+
   useEffect(()=>{
     Axios.get(`http://localhost:5000/api/authors/${id}`)
     .then(res =>{
@@ -36,29 +37,39 @@ const UpdateOneAuthor = () => {
                 setErrors(errorArr);
     })
   }
+
+  // to loop back and cancel the update
   const CancelBtn=()=>{
     nav(-1)
   }
+
   return (
-    <div >
+    <div className='container'>
+
       <div>
-      <Link to='/authors'style={{justifyContent:"left",display:"flex"}}>Home</Link>
-      <p style={{justifyContent:"left",display:"flex",color:"rgb(165,102,245)"}}>Edit this author:</p>
+        <div className='navBar'>
+      <Link to='/authors'className='styleHomeLink'>Home</Link>
+      <Link to='/' className='styleHomeLink'>LogOut</Link>
       </div>
-      <div>
-      <Form onSubmit={updateHandler} style={{border:"black solid 02px"}}>
+      <p className='StyleLink'>Edit this author:</p>
+      </div>
+
+      
+      <Form onSubmit={updateHandler} className='FormStyle'>
+
         {errors.map((err, index) => (
                     <p key="{index}" style={{ color: "red" }}>{err}</p>
                 ))}
+
       <Form.Group className="mb-3" controlId='exampleForm.ControlInput1'>
         <Form.Label>Name:</Form.Label>
         <Form.Control  value={name} placeholder="Enter the Name here" onChange={(e)=>setName(e.target.value)} />
       </Form.Group>
       
-      <Button variant="primary" onClick={()=>CancelBtn()}>Cancel</Button>{'  '}
+      <Button variant="primary" onClick={()=>CancelBtn()} className='SpaceBtn'>Cancel</Button>{'  '}
       <Button variant="primary" type="submit">Submit</Button>
     </Form>
-    </div>
+    
     </div>
   )
 }

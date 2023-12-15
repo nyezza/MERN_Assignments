@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+.styleHomeLink{
+  justify-content:left;
+  display:flex
+}
+
+.StyleLink{
+  justify-content:left;
+  display:flex;
+  color:rgb(165,102,245)
+}
+.container{
+  margin: 0 auto;
+  width: 300px;
+}
+.FormStyle{
+  justify-content:left;
+  margin:40px;
+  color:rgb(165,102,245);
+  
+}
+
+.StyleBtn{
+  text-decoration-color: aliceblue;
+}
+
+.SpaceBtn{
+  margin: 05px;
+}
