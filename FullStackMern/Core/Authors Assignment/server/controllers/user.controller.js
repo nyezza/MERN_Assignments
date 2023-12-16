@@ -1,12 +1,16 @@
 import User from '../models/user.model'
 
+const jwt = require ('jsonwebtoken')
+const bcrypt = require('bcrypt')
+const secretKey = process.env.SECRET_KEY
 
+module.exports = {
 register: (req, res) => {
   User.create(req.body)
     .then(user => {
         const userToken = jwt.sign({
             id: user._id
-        }, process.env.SECRET_KEY);
+        }, secretKey);
  
         res
             .cookie("usertoken", userToken, {
@@ -15,10 +19,7 @@ register: (req, res) => {
             .json({ msg: "success!", user: user });
     })
     .catch(err => res.json(err));
-}
-
-
-
+},
 
 login: async(req, res) => {
     const user = await User.findOne({ email: req.body.email });
@@ -40,7 +41,7 @@ login: async(req, res) => {
     // if we made it this far, the password was correct
     const userToken = jwt.sign({
         id: user._id
-    }, process.env.SECRET_KEY);
+    }, secretKey);
  
     // note that the response object allows chained calls to cookie and json
     res
@@ -48,10 +49,11 @@ login: async(req, res) => {
             httpOnly: true
         })
         .json({ msg: "success!" });
-}
+},
 
 
 logout: (req, res) => {
     res.clearCookie('usertoken');
     res.sendStatus(200);
+}
 }
