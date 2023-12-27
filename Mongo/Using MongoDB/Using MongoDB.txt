@@ -1,0 +1,50 @@
+1-  show dbs
+    use my_first_db
+2- db.createCollection("Students")
+3- db.createCollection("Students",{name:string,home-state:string,lucky_number:number,birthday:{month:number,day:number,year:number}})
+db.createCollection("Students"{name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
+
+
+4- > db.Students.insertMany([{name:"Nedhir",home_state:"Tunisia",lucky_number:02,birthday:{month:09,day:02,year:1987}},
+{name:"Nidhal",home_state:"Tunisia",lucky_number:15,birthday:{month:08,day:15,year:1989}},
+{name:"German",home_state:"Tunisia",lucky_number:10,birthday:{month:10,day:21,year:1994}},
+{name:"Nouha",home_state:"Tunisia",lucky_number:10,birthday:{month:07,day:09,year:1997}}, 
+{name:"Nihed",home_state:"Germany",lucky_number:10,birthday:{month:10,day:21,year:1994}}]) 
+> db.Students.insertMany([{name:"Nedhir",home_state:"Tunisia",lucky_number:02,birthday:{month:09,day:02,year:1987}},
+... {name:"Nidhal",home_state:"Tunisia",lucky_number:15,birthday:{month:08,day:15,year:1989}},
+... {name:"German",home_state:"Tunisia",lucky_number:10,birthday:{month:10,day:21,year:1994}},
+... {name:"Nouha",home_state:"Tunisia",lucky_number:10,birthday:{month:07,day:09,year:1997}}, 
+... {name:"Nihed",home_state:"Germany",lucky_number:10,birthday:{month:10,day:21,year:1994}}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("656749e2939af46a243564cf"),
+                ObjectId("656749e2939af46a243564d0"),
+                ObjectId("656749e2939af46a243564d1"),
+                ObjectId("656749e2939af46a243564d2"),
+                ObjectId("656749e2939af46a243564d3")
+        ]
+}
+5- db.Students.find()
+> db.Students.find()
+{ "_id" : ObjectId("656749e2939af46a243564cf"), "name" : "Nedhir", "home_state" : "Tunisia", "lucky_number" : 2, "birthday" : { "month" : 9, "day" : 2, "year" : 1987 } }
+{ "_id" : ObjectId("656749e2939af46a243564d0"), "name" : "Nidhal", "home_state" : "Tunisia", "lucky_number" : 15, "birthday" : { "month" : 8, "day" : 15, "year" : 1989 } }
+{ "_id" : ObjectId("656749e2939af46a243564d1"), "name" : "German", "home_state" : "Tunisia", "lucky_number" : 10, "birthday" : { "month" : 10, "day" : 21, "year" : 1994 } }
+{ "_id" : ObjectId("656749e2939af46a243564d2"), "name" : "Nouha", "home_state" : "Tunisia", "lucky_number" : 10, "birthday" : { "month" : 7, "day" : 9, "year" : 1997 } }
+{ "_id" : ObjectId("656749e2939af46a243564d3"), "name" : "Nihed", "home_state" : "Germany", "lucky_number" : 10, "birthday" : { "month" : 10, "day" : 21, "year" : 1994 } }
+
+6- db.Students.find({home_state:"Tunisia"})
+{ "_id" : ObjectId("656749e2939af46a243564cf"), "name" : "Nedhir", "home_state" : "Tunisia", "lucky_number" : 2, "birthday" : { "month" : 9, "day" : 2, "year" : 1987 } }       
+{ "_id" : ObjectId("656749e2939af46a243564d0"), "name" : "Nidhal", "home_state" : "Tunisia", "lucky_number" : 15, "birthday" : { "month" : 8, "day" : 15, "year" : 1989 } }     
+{ "_id" : ObjectId("656749e2939af46a243564d1"), "name" : "German", "home_state" : "Tunisia", "lucky_number" : 10, "birthday" : { "month" : 10, "day" : 21, "year" : 1994 } }    
+{ "_id" : ObjectId("656749e2939af46a243564d2"), "name" : "Nouha", "home_state" : "Tunisia", "lucky_number" : 10, "birthday" : { "month" : 7, "day" : 9, "year" : 1997 } } 
+
+7- db.Students.remove({home_state:"Tunisia"},false)
+> db.Students.remove({home_state:"Tunisia"},false)
+WriteResult({ "nRemoved" : 4 })
+
+8-db.Students.find({lucky_number:{$gt:3}})
+> db.Students.find({lucky_number:{$gt:3}})
+{ "_id" : ObjectId("656749e2939af46a243564d3"), "name" : "Nihed", "home_state" : "Germany", "lucky_number" : 10, "birthday" : { "month" : 10, "day" : 21, "year" : 1994 } }     
+
+9-
